@@ -1,0 +1,9 @@
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\bin\Debug\netcoreapp3.1\AgeCalculator.deps.json
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\bin\Debug\netcoreapp3.1\AgeCalculator.dll
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\bin\Debug\netcoreapp3.1\AgeCalculator.pdb
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\obj\Debug\netcoreapp3.1\AgeCalculator.csprojAssemblyReference.cache
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\obj\Debug\netcoreapp3.1\AgeCalculator.csproj.CoreCompileInputs.cache
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\obj\Debug\netcoreapp3.1\AgeCalculator.AssemblyInfoInputs.cache
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\obj\Debug\netcoreapp3.1\AgeCalculator.AssemblyInfo.cs
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\obj\Debug\netcoreapp3.1\AgeCalculator.dll
+C:\Users\Lindokuhle\source\repos\AgeCalculator\AgeCalculator\obj\Debug\netcoreapp3.1\AgeCalculator.pdb
