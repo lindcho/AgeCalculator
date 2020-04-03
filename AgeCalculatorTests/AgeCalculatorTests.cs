@@ -6,7 +6,7 @@ namespace AgeCalculatorTests
 {
     public class AgeCalculatorTests
     {
-        public Calculator CreateCalculator()
+        private Calculator CreateCalculator()
         {
             return new Calculator();
         }
@@ -32,11 +32,11 @@ namespace AgeCalculatorTests
         {
             // Arrange
             var sut = CreateCalculator();
-            const int expectedResult = 0;
+            const int expectedAge = 0;
             // Act
             var actual = sut.CalculateAge(dob, currentDate);
             // Assert
-            Assert.That(actual, Is.EqualTo(expectedResult));
+            Assert.That(actual, Is.EqualTo(expectedAge));
         }
 
         [TestCase("2019-10-10", "2020-10-10")]
@@ -46,25 +46,25 @@ namespace AgeCalculatorTests
         {
             // Arrange
             var sut = CreateCalculator();
-            const int expectedResult = 1;
+            const int expectedAge = 1;
             // Act
             var actual = sut.CalculateAge(dob, currentDate);
             // Act
-            Assert.That(actual, Is.EqualTo(expectedResult));
+            Assert.That(actual, Is.EqualTo(expectedAge));
         }
 
-        [TestCase("2005-03-22","2006-03-21")]
-        [TestCase("2018-12-29","2019-12-28")]
-        [TestCase("2008-09-1","2009-08-30")]
+        [TestCase("2005-03-22", "2006-03-21")]
+        [TestCase("2018-12-29", "2019-12-28")]
+        [TestCase("2008-09-1", "2009-08-30")]
         public void CalculateAge_GivenDayBeforeFirstBirthday_ShouldReturn0(DateTime dob, DateTime currentDate)
         {
             // Arrange
             var sut = CreateCalculator();
-            const int expectedResult = 0;
+            const int expectedAge = 0;
             // Act
             var actual = sut.CalculateAge(dob, currentDate);
             // Act
-            Assert.That(actual, Is.EqualTo(expectedResult));
+            Assert.That(actual, Is.EqualTo(expectedAge));
         }
 
 
@@ -75,50 +75,64 @@ namespace AgeCalculatorTests
         {
             // Arrange
             var sut = CreateCalculator();
-            const int expectedResult = 1;
+            const int expectedAge = 1;
             // Act
             var actual = sut.CalculateAge(dob, currentDate);
             // Act
-            Assert.That(actual, Is.EqualTo(expectedResult));
+            Assert.That(actual, Is.EqualTo(expectedAge));
         }
 
-        [TestCase("2001-01-1", "2003-01-1",2)]
-        [TestCase("2004-04-07", "2011-04-07",7)]
-        [TestCase("1998-01-20", "2015-01-20",17)]
-        public void CalculateAge_GivenBirthdayCelebratedToday_ShouldReturnCorrectAge(DateTime dob, DateTime currentDate, int expectedResult)
+        [TestCase("2001-01-1", "2003-01-1", 2)]
+        [TestCase("2004-04-07", "2011-04-07", 7)]
+        [TestCase("1998-01-20", "2015-01-20", 17)]
+        public void CalculateAge_GivenBirthdayCelebratedToday_ShouldReturnCorrectAge(DateTime dob, DateTime currentDate, int expectedAge)
         {
             // Arrange
             var sut = CreateCalculator();
             // Act
             var actual = sut.CalculateAge(dob, currentDate);
             // Act
-            Assert.That(actual, Is.EqualTo(expectedResult));
+            Assert.That(actual, Is.EqualTo(expectedAge));
         }
-        
-        [TestCase("1990-02-14", "1996-01-10",5)]
-        [TestCase("1980-8-3", "2010-7-3",29)]
-        [TestCase("2009-05-23", "2020-04-23",10)]
-        public void CalculateAge_GivenBirthdayIsOneMonthAway_ShouldReturnCurrentAge(DateTime dob, DateTime currentDate, int expectedResult)
+
+        [TestCase("1990-02-14", "1996-01-10", 5)]
+        [TestCase("1980-8-3", "2010-7-3", 29)]
+        [TestCase("2009-05-23", "2020-04-23", 10)]
+        public void CalculateAge_GivenBirthdayIsOneMonthAway_ShouldReturnCurrentAge(DateTime dob, DateTime currentDate, int expectedAge)
         {
             // Arrange
             var sut = CreateCalculator();
             // Act
             var actual = sut.CalculateAge(dob, currentDate);
             // Act
-            Assert.That(actual, Is.EqualTo(expectedResult));
-        }  
-        
-        [TestCase("2014-06-23", "2019-06-22",4)]
-        [TestCase("2011-07-07", "2020-07-06",8)]
-        [TestCase("2000-08-2", "2017-08-1",16)]
-        public void CalculateAge_GivenBirthdayIsOneDayAway_ShouldReturnCurrentAge(DateTime dob, DateTime currentDate, int expectedResult)
+            Assert.That(actual, Is.EqualTo(expectedAge));
+        }
+
+        [TestCase("2014-06-23", "2019-06-22", 4)]
+        [TestCase("2011-07-07", "2020-07-06", 8)]
+        [TestCase("2000-08-2", "2017-08-1", 16)]
+        public void CalculateAge_GivenBirthdayIsOneDayAway_ShouldReturnCurrentAge(DateTime dob, DateTime currentDate, int expectedAge)
         {
             // Arrange
             var sut = CreateCalculator();
             // Act
             var actual = sut.CalculateAge(dob, currentDate);
             // Act
-            Assert.That(actual, Is.EqualTo(expectedResult));
+            Assert.That(actual, Is.EqualTo(expectedAge));
+        }
+
+        [TestCase("2006-01-20", "2020-02-21", 14)]
+        [TestCase("1986-03-28", "2020-02-21", 33)]
+        [TestCase("1979-03-28", "2020-02-21", 40)]
+        [TestCase("1958-02-28", "2020-02-21", 61)]
+        public void CalculateAge_GivenRandomBirthDates_ShouldReturnAccurateAge(DateTime dob, DateTime currentDate, int expectedAge)
+        {
+            // Arrange
+            var sut = CreateCalculator();
+            // Act
+            var actual = sut.CalculateAge(dob, currentDate);
+            // Assert
+            Assert.That(actual, Is.EqualTo(expectedAge));
         }
 
     }
